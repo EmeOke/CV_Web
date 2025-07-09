@@ -74,21 +74,27 @@ ax2.tick_params(axis='x', pad=4)  # separa un poco las etiquetas del centro
 
 st.pyplot(fig2)
 
-# --- 3. Heatmap ---
+# --- 3. Skill meters ---
 st.markdown("---")
-st.markdown("### 3. Mapa de calor de habilidades por año")
+st.markdown("### 7. Progress Bars / Skill Meters")
 
-heat_data = pd.DataFrame({
-    'ServiceNow': [1, 1, 1, 1, 1, 1],
-    'Azure': [0, 0, 0, 1, 1, 1],
-    'AWS': [0, 0, 0, 0, 0, 1],
-    'Jira': [0, 0, 0, 0, 1, 1],
-    'Gestión de Cambios': [0, 0, 0, 0, 1, 1]
-}, index=["2018", "2019", "2020", "2021", "2022", "2023"])
+skills = {
+    "ServiceNow": 90,
+    "Azure": 75,
+    "AWS": 60,
+    "ITSM": 85,
+    "Documentación": 95,
+    "Comunicación": 88,
+    "Jira": 70,
+    "Confluence": 65
+}
 
-fig3, ax3 = plt.subplots()
-sns.heatmap(heat_data.T, cmap="YlGnBu", cbar=False, linewidths=1, linecolor='white', ax=ax3)
-st.pyplot(fig3)
+for skill, level in skills.items():
+    st.write(f"{skill} ({level}%)")
+    st.progress(level)
+
+# --- Footer ---
+st.markdown("---")
 
 # --- 4. Evolución de herramientas técnicas (burbujas animadas) ---
 st.markdown("---")
@@ -137,10 +143,10 @@ st.markdown("### 5. Herramientas y plataformas utilizadas")
 tools = {
     "Azure": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
     "AWS": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",
-    "ServiceNow": "https://upload.wikimedia.org/wikipedia/commons/7/7a/ServiceNow_logo.svg",
-    "Jira": "https://upload.wikimedia.org/wikipedia/en/8/8e/Jira_Logo.png",
-    "Confluence": "https://upload.wikimedia.org/wikipedia/en/e/e3/Confluence_Logo.png",
-    "Office 365": "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_Office_logo_%282013–2019%29.svg"
+    "ServiceNow": "https://logos-world.net/wp-content/uploads/2022/02/ServiceNow-Emblem.png",
+    "Jira": "https://cdn.worldvectorlogo.com/logos/jira-1.svg",
+    "Confluence": "https://www.svgrepo.com/show/353597/confluence.svg",
+    "Office 365": "https://cdn.worldvectorlogo.com/logos/office-2.svg"
 }
 
 cols = st.columns(3)
@@ -160,25 +166,5 @@ ax6.imshow(wordcloud, interpolation='bilinear')
 ax6.axis("off")
 st.pyplot(fig6)
 
-# --- 7. Skill meters ---
-st.markdown("---")
-st.markdown("### 7. Progress Bars / Skill Meters")
 
-skills = {
-    "ServiceNow": 90,
-    "Azure": 75,
-    "AWS": 60,
-    "ITSM": 85,
-    "Documentación": 95,
-    "Comunicación": 88,
-    "Jira": 70,
-    "Confluence": 65
-}
-
-for skill, level in skills.items():
-    st.write(f"{skill} ({level}%)")
-    st.progress(level)
-
-# --- Footer ---
-st.markdown("---")
 st.markdown("Created by Luis Sáenz • [LinkedIn](https://linkedin.com/in/lsaenz)")
