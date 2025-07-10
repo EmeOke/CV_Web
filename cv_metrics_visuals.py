@@ -11,80 +11,54 @@ st.title("📊 Visual CV – Luis Sáenz")
 
 # --- 1. Timeline ---
 st.markdown("---")
-st.markdown("### 1. Timeline profesional")
+st.markdown("### 1. Professional Timeline")
 
 timeline_df = pd.DataFrame({
-    'Rol': [
+    'Role': [
         "Call Taker",
         "Shift Lead",
         "Knowledge Manager",
         "Incident Manager",
-        "Consultor Técnico"
+        "Technical Consultant"
     ],
-    'Inicio': [2017, 2018, 2019, 2022, 2023],
-    'Fin':    [2018, 2019, 2022, 2023, 2025],
-    'Área': ['Soporte', 'Gestión', 'Documentación', 'ITSM', 'Cloud']
+    'Start': [2017, 2018, 2019, 2022, 2023],
+    'End':   [2018, 2019, 2022, 2023, 2025],
+    'Area': ['Support', 'Incident Management', 'Knowledge Management', 'ITSM', 'Cloud']
 })
 
-timeline_df['Duración'] = timeline_df['Fin'] - timeline_df['Inicio']
+timeline_df['Duration'] = timeline_df['End'] - timeline_df['Start']
 
 fig_timeline = px.bar(
     timeline_df,
-    x="Duración",
-    y="Rol",
-    color="Área",
+    x="Duration",
+    y="Role",
+    color="Area",
     orientation="h",
-    text="Inicio",
-    hover_data=["Inicio", "Fin"],
+    text="Start",
+    hover_data=["Start", "End"],
     color_discrete_sequence=px.colors.qualitative.Set2
 )
 
 fig_timeline.update_layout(
-    title="Timeline profesional (duración por rol)",
-    xaxis_title="Años",
-    yaxis_title="Rol",
+    title="Professional Timeline (Role Duration)",
+    xaxis_title="Years",
+    yaxis_title="Role",
     showlegend=True
 )
 
 st.plotly_chart(fig_timeline, use_container_width=True)
 
-# --- 2. Radar ---
+# --- 2. Skill meters ---
 st.markdown("---")
-st.markdown("### 2. Radar de competencias principales")
-
-radar_labels = ['ITSM', 'Soporte Técnico', 'Cloud', 'Documentación', 'Gestión de Cambios', 'Entrenamiento']
-values = [9, 8, 7, 9, 7, 8]
-values += values[:1]
-angles = [n / float(len(radar_labels)) * 2 * pi for n in range(len(radar_labels))]
-angles += angles[:1]
-
-fig2, ax2 = plt.subplots(figsize=(2, 2), subplot_kw=dict(polar=True))
-
-# Graficar
-ax2.plot(angles, values, linewidth=1, linestyle='solid')
-ax2.fill(angles, values, 'skyblue', alpha=0.4)
-
-# Ajustar etiquetas
-ax2.set_xticks(angles[:-1])
-ax2.set_xticklabels(radar_labels, fontsize=6, wrap=True)
-
-# Opcional: quitar etiquetas del eje radial
-ax2.set_yticklabels([])
-ax2.tick_params(axis='x', pad=4)  # separa un poco las etiquetas del centro
-
-st.pyplot(fig2)
-
-# --- 3. Skill meters ---
-st.markdown("---")
-st.markdown("### 7. Progress Bars / Skill Meters")
+st.markdown("### 2. Progress Bars / Skill Meters")
 
 skills = {
     "ServiceNow": 90,
     "Azure": 75,
     "AWS": 60,
     "ITSM": 85,
-    "Documentación": 95,
-    "Comunicación": 88,
+    "Knowledge": 95,
+    "Communication Skills": 88,
     "Jira": 70,
     "Confluence": 65
 }
@@ -93,52 +67,46 @@ for skill, level in skills.items():
     st.write(f"{skill} ({level}%)")
     st.progress(level)
 
-# --- Footer ---
+# --- 3. Animated Bubbles ---
 st.markdown("---")
-
-# --- 4. Evolución de herramientas técnicas (burbujas animadas) ---
-st.markdown("---")
-st.markdown("### 4. Evolución de herramientas técnicas (burbujas animadas)")
+st.markdown("### 3. Technical Tools Skills Development Over Time")
 
 tech_df = pd.DataFrame({
-    'Año': [2018, 2018, 2019, 2019, 2020, 2021, 2022, 2023],
-    'Herramienta': ['ServiceNow', 'Office 365', 'Jira', 'Azure', 'AWS', 'ServiceNow', 'Jira', 'AWS'],
-    'Dominio': [6, 4, 5, 5, 6, 8, 6, 9],
-    'Uso': [60, 40, 50, 50, 60, 80, 60, 90]
+    'Year': [2018, 2018, 2019, 2019, 2020, 2021, 2022, 2023],
+    'Tool': ['ServiceNow', 'Office 365', 'Jira', 'Azure', 'AWS', 'ServiceNow', 'Jira', 'AWS'],
+    'Proficiency': [6, 4, 5, 5, 6, 8, 6, 9],
+    'Usage': [60, 40, 50, 50, 60, 80, 60, 90]
 })
 
-# Añadir esta línea clave para evitar agrupamiento no deseado
-tech_df['Herramienta_Año'] = tech_df['Herramienta'] + '_' + tech_df['Año'].astype(str)
+tech_df['Tool_Year'] = tech_df['Tool'] + '_' + tech_df['Year'].astype(str)
 
 fig_tech = px.scatter(
     tech_df,
-    x="Año",
-    y="Dominio",
-    size="Uso",
-    color="Herramienta",
-    hover_name="Herramienta",
-    animation_frame="Año",
-    animation_group="Herramienta_Año",  # Esto evita que se mezclen las burbujas
+    x="Year",
+    y="Proficiency",
+    size="Usage",
+    color="Tool",
+    hover_name="Tool",
+    animation_frame="Year",
+    animation_group="Tool_Year",
     size_max=60,
     range_x=[2017, 2024],
     range_y=[0, 10],
-    title="Evolución del dominio en herramientas técnicas"
+    title="Technical Tools Skills Development Over Time"
 )
 
 fig_tech.update_layout(
-    xaxis_title="Año",
-    yaxis_title="Nivel de dominio (1-10)",
+    xaxis_title="Year",
+    yaxis_title="Proficiency (1-10)",
     showlegend=True
 )
 
-# Asegurar que todas las herramientas aparezcan en la leyenda
 fig_tech.update_traces(marker=dict(line=dict(width=1, color='DarkSlateGrey')))
-
 st.plotly_chart(fig_tech, use_container_width=True)
 
-# --- 5. Logos / Tools map ---
+# --- 4. Tools and Platforms Used ---
 st.markdown("---")
-st.markdown("### 5. Herramientas y plataformas utilizadas")
+st.markdown("### 4. Tools and Platforms Used")
 
 tools = {
     "Azure": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg",
@@ -155,16 +123,17 @@ for i, (name, url) in enumerate(tools.items()):
         st.image(url, width=60)
         st.write(name)
 
-# --- 6. Word Cloud ---
+# --- 5. Word Cloud ---
 st.markdown("---")
-st.markdown("### 6. Nube de palabras del CV")
+st.markdown("### 5. Word Cloud from CV")
 
-text = "Azure AWS ServiceNow ITSM documentación Trainer Change Management Support Jira Confluence Knowledge Base Customer Services Incident"
+text = "Azure AWS ServiceNow ITSM documentation Trainer Change Management Support Jira Confluence Knowledge Base Customer Services Incident"
 wordcloud = WordCloud(width=800, height=300, background_color='white').generate(text)
 fig6, ax6 = plt.subplots()
 ax6.imshow(wordcloud, interpolation='bilinear')
 ax6.axis("off")
 st.pyplot(fig6)
 
-
+# --- Footer ---
+st.markdown("---")
 st.markdown("Created by Luis Sáenz • [LinkedIn](https://linkedin.com/in/lsaenz)")
