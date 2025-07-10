@@ -26,7 +26,7 @@ Barras de progreso que representan el nivel de dominio en distintas herramientas
 ### 3️⃣ Technical Tools Skills Development Over Time
 Gráfico de burbujas animado por año, que visualiza el uso y la evolución en el dominio de herramientas técnicas.
 
-5️⃣ Word Cloud
+### 5️⃣ Word Cloud
 Nube de palabras generada a partir de habilidades y conceptos clave del CV.
 
 🚀 Cómo ejecutar el proyecto
