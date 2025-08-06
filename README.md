@@ -31,7 +31,7 @@ Nube de palabras generada a partir de habilidades y conceptos clave del CV.
 
 # 🚀 Cómo ejecutar el proyecto
 
-##1. Clona el repositorio
+## 1. Clona el repositorio
 
 ```bash
 git clone https://github.com/tuusuario/visual-cv.git
@@ -69,5 +69,5 @@ wordcloud
 
 # 👨‍💻 Autor
 
-**Luis Sáenz**  
+**Tu usuario**  
 [🔗 LinkedIn](https://www.linkedin.com/in/tuusuario)
