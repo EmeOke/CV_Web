@@ -57,7 +57,7 @@ skills = {
     "Azure": 75,
     "AWS": 60,
     "ITSM": 85,
-    "Knowledge": 95,
+    "Knowledge Management": 95,
     "Communication Skills": 88,
     "Jira": 70,
     "Confluence": 65
