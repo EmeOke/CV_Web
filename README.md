@@ -30,37 +30,44 @@ Gráfico de burbujas animado por año, que visualiza el uso y la evolución en e
 Nube de palabras generada a partir de habilidades y conceptos clave del CV.
 
 # 🚀 Cómo ejecutar el proyecto
-Clona el repositorio:
 
-bash
-Copier
-Modifier
+##1. Clona el repositorio
+
+```bash
 git clone https://github.com/tuusuario/visual-cv.git
 cd visual-cv
-Instala las dependencias necesarias:
+```
 
-bash
-Copier
-Modifier
+## 2. Instala las dependencias necesarias
+
+```bash
 pip install -r requirements.txt
-Ejecuta la aplicación:
+```
 
-bash
-Copier
-Modifier
+## 3. Ejecuta la aplicación
+
+```bash
 streamlit run app.py
-📄 Requisitos
-Archivo requirements.txt recomendado:
+```
 
-txt
-Copier
-Modifier
+---
+
+## 📄 Requisitos
+
+Contenido sugerido para el archivo `requirements.txt`:
+
+```
 streamlit
 plotly
 pandas
 matplotlib
 seaborn
 wordcloud
-👨‍💻 Autor
-Luis Sáenz
-🔗 LinkedIn
+```
+
+---
+
+# 👨‍💻 Autor
+
+**Luis Sáenz**  
+[🔗 LinkedIn](https://www.linkedin.com/in/tuusuario)
