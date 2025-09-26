@@ -1,78 +1,132 @@
-Visual CV Dashboard for Luis Sáenz 📊✨
-Welcome to the Visual CV Dashboard! This interactive Streamlit application showcases the professional journey of Luis Sáenz through dynamic visualizations, highlighting roles, skills, tools, certifications, and more. Built with Python and Plotly, it brings the CV to life with colorful charts and animations! 🚀
-📖 Overview
+# Visual CV Dashboard for Luis Sáenz 📊✨
+
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://streamlit.io/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
+[![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)](https://plotly.com)
+
+**Welcome to the Visual CV Dashboard!** This interactive Streamlit application showcases the professional journey of Luis Sáenz through dynamic visualizations, highlighting roles, skills, tools, certifications, and more. Built with Python and Plotly, it brings the CV to life with colorful charts and animations! 🚀
+
+![Dashboard Preview](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Visual+CV+Dashboard+Preview)
+
+## 📖 Overview
+
 This project transforms Luis Sáenz's CV into an interactive dashboard, featuring:
 
-Professional Timeline 📅: A horizontal bar chart showing 7 roles from 2017 to 2025.
-Skill Meters 📈: Progress bars for 10 key skills (e.g., ServiceNow, Azure, ITSM).
-Technical Tools 🔧: Animated bubble chart tracking proficiency and usage of tools like ServiceNow, Jira, and AWS.
-Tools & Platforms 🛠️: Logo gallery of 9 key technologies.
-Word Cloud ☁️: Top 10 terms from the CV, emphasizing ITSM, Cloud, and Support.
-Certifications 🎓: Bar chart of 8 certifications earned from 2017 to 2025.
-Languages 🌐: Radar chart showing proficiency in Spanish, English, and French.
-Time by Role/Company 🕒: Pie chart breaking down 93 months across 6 TCS roles and 1 INVISO role.
+### 📊 Dashboard Features
+- **Professional Timeline 📅**: Horizontal bar chart showing 7 roles from 2017 to 2025
+- **Skill Meters 📈**: Progress bars for 10 key skills (ServiceNow, Azure, ITSM, etc.)
+- **Technical Tools 🔧**: Animated bubble chart tracking proficiency and usage
+- **Tools & Platforms 🛠️**: Logo gallery of 9 key technologies
+- **Word Cloud ☁️**: Top 10 terms emphasizing ITSM, Cloud, and Support
+- **Certifications 🎓**: Bar chart of 8 certifications (2017-2025)
+- **Languages 🌐**: Radar chart showing Spanish, English, and French proficiency
+- **Time by Role/Company 🕒**: Pie chart breaking down 93 months across roles
 
-🚀 Getting Started
-Prerequisites
+## 🚀 Quick Start
 
-Python 3.8+ 🐍
-Streamlit, Pandas, Matplotlib, Seaborn, WordCloud, Plotly 📚
+### Prerequisites
+- **Python 3.8+** 🐍
+- **Required Packages**: Streamlit, Pandas, Plotly, WordCloud
 
-Installation
+### Installation
 
-Clone the repository:git clone https://github.com/your-repo/visual-cv-luis-saenz.git
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-repo/visual-cv-luis-saenz.git
+   cd visual-cv-luis-saenz
+Install dependencies
 
+bash
+pip install -r requirements.txt
+Run the application
 
-Navigate to the project directory:cd visual-cv-luis-saenz
-
-
-Install dependencies:pip install -r requirements.txt
-
-
-
-Running the App
-Run the Streamlit app locally:
+bash
 streamlit run visual_cv.py
-
 Open your browser at http://localhost:8501 to explore the dashboard! 🌐
-🎨 Features
 
-Interactive Navigation 🧭: Use the sidebar to select specific sections or view all visualizations.
-Dynamic Animations 🎥: The bubble chart animates tool proficiency over time (2017–2025).
-Responsive Design 📱: Wide layout with clean styling for desktop and mobile.
-Emphasized Metrics 📊: Highlights 7 roles, 8 certifications, and 93 months of experience.
-Custom Styling ✨: Uses a modern color palette and CSS for a polished look.
+🎨 Key Features
+Feature	Description	Technology
+Interactive Navigation 🧭	Sidebar for section selection	Streamlit
+Dynamic Animations 🎥	Animated bubble chart (2017–2025)	Plotly
+Responsive Design 📱	Optimized for desktop and mobile	CSS
+Custom Styling ✨	Modern color palette and themes	Plotly + CSS
+📈 Metrics Highlight
+7 professional roles
+
+8 certifications
+
+93 months of experience
+
+10 key skills tracked
+
+9 technical tools visualized
 
 📂 Project Structure
+text
 visual-cv-luis-saenz/
-├── visual_cv.py       # Main Streamlit application 🎯
-├── requirements.txt   # Dependencies 📋
-├── README.md          # This file 📖
+├── visual_cv.py          # Main Streamlit application 🎯
+├── requirements.txt      # Python dependencies 📋
+├── assets/              # Images and logos (optional)
+│   ├── logos/
+│   └── screenshots/
+└── README.md            # This file 📖
+🛠️ Customization Guide
+Adding New Data ➕
+Update the DataFrames in visual_cv.py:
 
-📈 Data Sources
-The visualizations are based on Luis Sáenz's CV (updated to September 2025), with:
+python
+# Example: Add new skills
+skills = {
+    'ServiceNow': 95,
+    'Azure': 85,
+    'ITSM': 90,
+    # Add your skills here
+}
+Changing Colors 🎨
+Modify the color scheme in Plotly charts:
 
-Roles: 6 at TCS (Call Taker, Shift Lead, Quality Analyst, Knowledge Manager, Incident Manager, Change Manager) and 1 at INVISO (Technical Consultant).
-Tools: ServiceNow, Jira, Confluence, Azure, AWS, SolarWinds, Dr. Migrate, M365, GitHub, Render.
-Certifications: CompTIA A+, Azure Essentials, ITIL 4, Scrum Master, and more.
+python
+fig.update_layout(
+    colorway=['#4F46E5', '#10B981', '#F59E0B', '#EF4444']
+)
+Extending Visuals 📉
+Add new sections by following existing patterns:
 
-🛠️ Customization
-Want to tweak the dashboard? Here’s how:
+python
+with st.container():
+    st.subheader("New Visualization")
+    # Your chart code here
+📊 Data Sources
+Based on Luis Sáenz's CV (updated September 2025):
 
-Add New Data ➕: Update timeline_df, skills, tech_df, or other DataFrames in visual_cv.py.
-Change Colors 🎨: Modify the color_discrete_sequence in Plotly charts or CSS in st.markdown.
-Extend Visuals 📉: Add new sections by following the structure of existing visualizations.
+🏢 Professional Experience
+TCS Roles: Call Taker → Shift Lead → Quality Analyst → Knowledge Manager → Incident Manager → Change Manager
+
+INVISO Role: Technical Consultant
+
+🔧 Technical Stack
+Platforms: ServiceNow, Jira, Confluence, Azure, AWS
+
+Tools: SolarWinds, Dr. Migrate, M365, GitHub, Render
+
+Certifications: CompTIA A+, Azure Essentials, ITIL 4, Scrum Master, etc.
 
 🤝 Contributing
-Contributions are welcome! 🙌
+We welcome contributions! 🙌
 
 Fork the repo 🍴
-Create a new branch (git checkout -b feature/awesome-addition)
-Commit your changes (git commit -m "Added awesome feature")
-Push to the branch (git push origin feature/awesome-addition)
+
+Create a feature branch: git checkout -b feature/amazing-feature
+
+Commit changes: git commit -m "Add amazing feature"
+
+Push to branch: git push origin feature/amazing-feature
+
 Open a Pull Request 🚀
 
-📬 Contact
-Connect with <a href="https://www.linkedin.com/in/lsaenz" target="_blank">Luis Sáenz</a> on LinkedIn for more details about his professional journey! 📩
+📬 Connect
+Let's talk! Connect with Luis Sáenz for more details about his professional journey:
+
+https://img.shields.io/badge/LinkedIn-Connect%2520with%2520Luis%2520S%C3%A1enz-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 
 Created with 💻 and ❤️ by the Luis Saenz Visual CV Team • Updated September 2025 🗓️
