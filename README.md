@@ -106,6 +106,6 @@ git push origin feature/awesome-addition
 
 ## 📬 Connect with Luis
 
-Reach out to Luis Sáenz on LinkedIn to learn more about his professional journey! 📩
+Reach out to [Luis Sáenz on LinkedIn](https://www.linkedin.com/in/lsaenz) to learn more about his professional journey! 📩
 
 Created with 💻 and ❤️ by the Luis Sáenz Visual CV Team
